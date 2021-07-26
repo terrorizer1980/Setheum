@@ -1139,7 +1139,7 @@ impl<T: Config> Pallet<T> {
 		Ok(supply_amounts)
 	}
 
-	fn _swap(
+	fn swap(
 		supply_currency_id: CurrencyId,
 		target_currency_id: CurrencyId,
 		supply_increment: Balance,
@@ -1169,12 +1169,12 @@ impl<T: Config> Pallet<T> {
 		Ok(())
 	}
 
-	fn _swap_by_path(path: &[CurrencyId], amounts: &[Balance]) -> DispatchResult {
+	fn swap_by_path(path: &[CurrencyId], amounts: &[Balance]) -> DispatchResult {
 		let mut i: usize = 0;
 		while i + 1 < path.len() {
 			let (supply_currency_id, target_currency_id) = (path[i], path[i + 1]);
 			let (supply_increment, target_decrement) = (amounts[i], amounts[i + 1]);
-			Self::_swap(
+			Self::swap(
 				supply_currency_id,
 				target_currency_id,
 				supply_increment,
