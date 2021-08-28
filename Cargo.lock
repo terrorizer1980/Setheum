@@ -1586,8 +1586,26 @@ version = "0.7.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "567ce064a8232c16e2b2c2173a936b91fbe35c2f2c5278871f5a1a31688b42e9"
 dependencies = [
- "ethereum-types",
+ "ethereum-types 0.11.0",
  "funty",
+ "hash-db",
+ "hash256-std-hasher",
+ "parity-scale-codec",
+ "rlp",
+ "rlp-derive",
+ "serde",
+ "sha3 0.9.1",
+ "triehash",
+]
+
+[[package]]
+name = "ethereum"
+version = "0.9.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "4a67be3eaf296ef668733f54c637e84d0ca34eaf194f0077455135981ad464c3"
+dependencies = [
+ "bytes 1.0.1",
+ "ethereum-types 0.12.0",
  "hash-db",
  "hash256-std-hasher",
  "parity-scale-codec",
@@ -1609,7 +1627,22 @@ dependencies = [
  "impl-codec",
  "impl-rlp",
  "impl-serde",
- "primitive-types",
+ "primitive-types 0.9.1",
+ "uint",
+]
+
+[[package]]
+name = "ethereum-types"
+version = "0.12.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "0dd6bde671199089e601e8d47e153368b893ef885f11f365a3261ec58153c211"
+dependencies = [
+ "ethbloom",
+ "fixed-hash",
+ "impl-codec",
+ "impl-rlp",
+ "impl-serde",
+ "primitive-types 0.10.1",
  "uint",
 ]
 
@@ -1625,13 +1658,32 @@ version = "0.26.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "1202e8dfa45bea73ee003c4be2f3549d60cb2e2ac5b0c1db563bd4653213efde"
 dependencies = [
- "ethereum",
- "evm-core",
- "evm-gasometer",
- "evm-runtime",
+ "ethereum 0.7.1",
+ "evm-core 0.26.1",
+ "evm-gasometer 0.26.0",
+ "evm-runtime 0.26.0",
  "log",
  "parity-scale-codec",
- "primitive-types",
+ "primitive-types 0.9.1",
+ "rlp",
+ "serde",
+ "sha3 0.8.2",
+]
+
+[[package]]
+name = "evm"
+version = "0.30.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "3144301c57a81101003055c7cab61b58e68060f3bd1c54aa419f663e4f0e6347"
+dependencies = [
+ "environmental",
+ "ethereum 0.9.0",
+ "evm-core 0.30.0",
+ "evm-gasometer 0.30.0",
+ "evm-runtime 0.30.0",
+ "log",
+ "parity-scale-codec",
+ "primitive-types 0.10.1",
  "rlp",
  "serde",
  "sha3 0.8.2",
@@ -1645,7 +1697,19 @@ checksum = "0f235e93b84fccc1ebdffad226dc56caf833de2fb2f3395f933d95fbf66b254e"
 dependencies = [
  "funty",
  "parity-scale-codec",
- "primitive-types",
+ "primitive-types 0.9.1",
+ "serde",
+]
+
+[[package]]
+name = "evm-core"
+version = "0.30.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "a7bfa2dae9a2c6c0172d83c37eb406bfabf6a9d1af17b7ab4958e89853ddae97"
+dependencies = [
+ "funty",
+ "parity-scale-codec",
+ "primitive-types 0.10.1",
  "serde",
 ]
 
@@ -1655,16 +1719,28 @@ version = "0.26.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "463412356790c5e34e8a13cd23ba06284d9afa999e82e8c64497aed2ee625375"
 dependencies = [
- "evm-core",
- "evm-runtime",
- "primitive-types",
+ "evm-core 0.26.1",
+ "evm-runtime 0.26.0",
+ "primitive-types 0.9.1",
+]
+
+[[package]]
+name = "evm-gasometer"
+version = "0.30.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "14d5b12117cb9a5a9b9f031296ea86416da2cd9d8c9a9e3a2fa10275ae55f3ea"
+dependencies = [
+ "environmental",
+ "evm-core 0.30.0",
+ "evm-runtime 0.30.0",
+ "primitive-types 0.10.1",
 ]
 
 [[package]]
 name = "evm-rpc"
 version = "0.8.0"
 dependencies = [
- "ethereum-types",
+ "ethereum-types 0.11.0",
  "frame-support 3.0.0 (git+https://github.com/paritytech/substrate?branch=polkadot-v0.9.9)",
  "jsonrpc-core",
  "jsonrpc-derive",
@@ -1690,8 +1766,20 @@ version = "0.26.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "0c08f510e5535cee2352adb9b93ff24dc80f8ca1bad445a9aa1292ce144b45a1"
 dependencies = [
- "evm-core",
- "primitive-types",
+ "evm-core 0.26.1",
+ "primitive-types 0.9.1",
+ "sha3 0.8.2",
+]
+
+[[package]]
+name = "evm-runtime"
+version = "0.30.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "3921ac8964cf13d12693392fef6686ef94470328ccd8eea384c6ff9ac0125b01"
+dependencies = [
+ "environmental",
+ "evm-core 0.30.0",
+ "primitive-types 0.10.1",
  "sha3 0.8.2",
 ]
 
@@ -4129,7 +4217,7 @@ dependencies = [
  "impl-trait-for-tuples 0.2.1",
  "max-encoded-len-derive 3.0.0 (git+https://github.com/paritytech/substrate?branch=polkadot-v0.9.4)",
  "parity-scale-codec",
- "primitive-types",
+ "primitive-types 0.9.1",
 ]
 
 [[package]]
@@ -4139,7 +4227,7 @@ source = "git+https://github.com/paritytech/substrate?branch=polkadot-v0.9.7#9c5
 dependencies = [
  "impl-trait-for-tuples 0.2.1",
  "parity-scale-codec",
- "primitive-types",
+ "primitive-types 0.9.1",
 ]
 
 [[package]]
@@ -4150,7 +4238,7 @@ dependencies = [
  "impl-trait-for-tuples 0.2.1",
  "max-encoded-len-derive 3.0.0 (git+https://github.com/paritytech//substrate?branch=polkadot-v0.9.9)",
  "parity-scale-codec",
- "primitive-types",
+ "primitive-types 0.9.1",
 ]
 
 [[package]]
@@ -4161,7 +4249,7 @@ dependencies = [
  "impl-trait-for-tuples 0.2.1",
  "max-encoded-len-derive 3.0.0 (git+https://github.com/paritytech/substrate?branch=polkadot-v0.9.9)",
  "parity-scale-codec",
- "primitive-types",
+ "primitive-types 0.9.1",
 ]
 
 [[package]]
@@ -4172,7 +4260,7 @@ dependencies = [
  "impl-trait-for-tuples 0.2.1",
  "max-encoded-len-derive 3.0.0 (git+https://github.com/paritytech/substrate?rev=1d04678e20555e623c974ee1127bc8a45abcf3d6)",
  "parity-scale-codec",
- "primitive-types",
+ "primitive-types 0.9.1",
 ]
 
 [[package]]
@@ -4513,7 +4601,7 @@ dependencies = [
 name = "newrome-runtime"
 version = "0.8.0"
 dependencies = [
- "evm",
+ "evm 0.26.0",
  "frame-benchmarking 3.1.0 (git+https://github.com/paritytech/substrate?branch=polkadot-v0.9.9)",
  "frame-executive",
  "frame-support 3.0.0 (git+https://github.com/paritytech/substrate?branch=polkadot-v0.9.9)",
@@ -4853,7 +4941,6 @@ version = "0.4.1-dev"
 dependencies = [
  "frame-support 3.0.0 (git+https://github.com/paritytech/substrate?branch=polkadot-v0.9.9)",
  "frame-system 3.0.0 (git+https://github.com/paritytech/substrate?branch=polkadot-v0.9.9)",
- "max-encoded-len 3.0.0 (git+https://github.com/paritytech/substrate?branch=polkadot-v0.9.9)",
  "parity-scale-codec",
  "serde",
  "sp-core 3.0.0 (git+https://github.com/paritytech/substrate?branch=polkadot-v0.9.9)",
@@ -4908,7 +4995,6 @@ version = "0.4.1-dev"
 dependencies = [
  "frame-support 3.0.0 (git+https://github.com/paritytech/substrate?branch=polkadot-v0.9.9)",
  "frame-system 3.0.0 (git+https://github.com/paritytech/substrate?branch=polkadot-v0.9.9)",
- "max-encoded-len 3.0.0 (git+https://github.com/paritytech/substrate?branch=polkadot-v0.9.9)",
  "orml-traits",
  "parity-scale-codec",
  "serde",
@@ -4924,7 +5010,6 @@ version = "0.4.1-dev"
 dependencies = [
  "frame-support 3.0.0 (git+https://github.com/paritytech/substrate?branch=polkadot-v0.9.9)",
  "frame-system 3.0.0 (git+https://github.com/paritytech/substrate?branch=polkadot-v0.9.9)",
- "max-encoded-len 3.0.0 (git+https://github.com/paritytech/substrate?branch=polkadot-v0.9.9)",
  "orml-traits",
  "pallet-elections-phragmen",
  "pallet-treasury",
@@ -4972,7 +5057,6 @@ version = "0.4.1-dev"
 dependencies = [
  "frame-support 3.0.0 (git+https://github.com/paritytech/substrate?branch=polkadot-v0.9.9)",
  "frame-system 3.0.0 (git+https://github.com/paritytech/substrate?branch=polkadot-v0.9.9)",
- "max-encoded-len 3.0.0 (git+https://github.com/paritytech/substrate?branch=polkadot-v0.9.9)",
  "pallet-balances 3.0.0 (git+https://github.com/paritytech/substrate?branch=polkadot-v0.9.9)",
  "parity-scale-codec",
  "serde",
@@ -5526,7 +5610,7 @@ dependencies = [
  "jemallocator",
  "parity-util-mem-derive",
  "parking_lot 0.11.1",
- "primitive-types",
+ "primitive-types 0.9.1",
  "smallvec 1.6.1",
  "winapi 0.3.9",
 ]
@@ -5873,6 +5957,19 @@ name = "primitive-types"
 version = "0.9.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "06345ee39fbccfb06ab45f3a1a5798d9dafa04cb8921a76d227040003a234b0e"
+dependencies = [
+ "fixed-hash",
+ "impl-codec",
+ "impl-rlp",
+ "impl-serde",
+ "uint",
+]
+
+[[package]]
+name = "primitive-types"
+version = "0.10.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "05e4722c697a58a99d5d06a08c30821d7c082a4632198de1eaa5a6c22ef42373"
 dependencies = [
  "fixed-hash",
  "impl-codec",
@@ -8074,9 +8171,9 @@ name = "setheum-evm"
 version = "1.2.2"
 dependencies = [
  "env_logger 0.7.1",
- "evm",
- "evm-gasometer",
- "evm-runtime",
+ "evm 0.30.1",
+ "evm-gasometer 0.30.0",
+ "evm-runtime 0.30.0",
  "frame-support 3.0.0 (git+https://github.com/paritytech/substrate?branch=polkadot-v0.9.9)",
  "frame-system 3.0.0 (git+https://github.com/paritytech/substrate?branch=polkadot-v0.9.9)",
  "impl-trait-for-tuples 0.1.3",
@@ -8087,7 +8184,7 @@ dependencies = [
  "pallet-balances 3.0.0 (git+https://github.com/paritytech/substrate?branch=polkadot-v0.9.9)",
  "pallet-timestamp",
  "parity-scale-codec",
- "primitive-types",
+ "primitive-types 0.10.1",
  "ripemd160",
  "rlp",
  "serde",
@@ -8126,7 +8223,7 @@ dependencies = [
 name = "setheum-evm-bridge"
 version = "1.2.2"
 dependencies = [
- "ethereum-types",
+ "ethereum-types 0.12.0",
  "frame-support 3.0.0 (git+https://github.com/paritytech/substrate?branch=polkadot-v0.9.9)",
  "frame-system 3.0.0 (git+https://github.com/paritytech/substrate?branch=polkadot-v0.9.9)",
  "impl-trait-for-tuples 0.2.1",
@@ -8134,7 +8231,7 @@ dependencies = [
  "pallet-balances 3.0.0 (git+https://github.com/paritytech/substrate?branch=polkadot-v0.9.9)",
  "pallet-timestamp",
  "parity-scale-codec",
- "primitive-types",
+ "primitive-types 0.10.1",
  "primitives-proc-macro",
  "serde",
  "setheum-evm",
@@ -8174,7 +8271,7 @@ dependencies = [
 name = "setheum-evm-rpc-runtime-api"
 version = "1.2.2"
 dependencies = [
- "ethereum-types",
+ "ethereum-types 0.12.0",
  "setheum-primitives",
  "sp-api 3.0.0 (git+https://github.com/paritytech/substrate?branch=polkadot-v0.9.9)",
  "sp-core 3.0.0 (git+https://github.com/paritytech/substrate?branch=polkadot-v0.9.9)",
@@ -8243,7 +8340,7 @@ version = "0.8.0"
 dependencies = [
  "bstringify",
  "chainbridge 0.0.2 (git+https://github.com/Slixon-Technologies/chainbridge-substrate)",
- "evm",
+ "evm 0.26.0",
  "frame-support 3.0.0 (git+https://github.com/paritytech/substrate?branch=polkadot-v0.9.9)",
  "max-encoded-len 3.0.0 (git+https://github.com/paritytech/substrate?branch=polkadot-v0.9.9)",
  "num-traits",
@@ -9140,7 +9237,7 @@ dependencies = [
  "parity-scale-codec",
  "parity-util-mem",
  "parking_lot 0.11.1",
- "primitive-types",
+ "primitive-types 0.9.1",
  "rand 0.7.3",
  "regex",
  "schnorrkel",
@@ -9185,7 +9282,7 @@ dependencies = [
  "parity-scale-codec",
  "parity-util-mem",
  "parking_lot 0.11.1",
- "primitive-types",
+ "primitive-types 0.9.1",
  "rand 0.7.3",
  "regex",
  "schnorrkel",
@@ -9230,7 +9327,7 @@ dependencies = [
  "parity-scale-codec",
  "parity-util-mem",
  "parking_lot 0.11.1",
- "primitive-types",
+ "primitive-types 0.9.1",
  "rand 0.7.3",
  "regex",
  "schnorrkel",
@@ -9275,7 +9372,7 @@ dependencies = [
  "parity-scale-codec",
  "parity-util-mem",
  "parking_lot 0.11.1",
- "primitive-types",
+ "primitive-types 0.9.1",
  "rand 0.7.3",
  "regex",
  "schnorrkel",
@@ -9879,7 +9976,7 @@ source = "git+https://github.com/paritytech/substrate?branch=polkadot-v0.9.4#1d0
 dependencies = [
  "impl-trait-for-tuples 0.2.1",
  "parity-scale-codec",
- "primitive-types",
+ "primitive-types 0.9.1",
  "sp-externalities 0.9.0 (git+https://github.com/paritytech/substrate?branch=polkadot-v0.9.4)",
  "sp-runtime-interface-proc-macro 3.0.0 (git+https://github.com/paritytech/substrate?branch=polkadot-v0.9.4)",
  "sp-std 3.0.0 (git+https://github.com/paritytech/substrate?branch=polkadot-v0.9.4)",
@@ -9896,7 +9993,7 @@ source = "git+https://github.com/paritytech//substrate?branch=polkadot-v0.9.9#74
 dependencies = [
  "impl-trait-for-tuples 0.2.1",
  "parity-scale-codec",
- "primitive-types",
+ "primitive-types 0.9.1",
  "sp-externalities 0.9.0 (git+https://github.com/paritytech//substrate?branch=polkadot-v0.9.9)",
  "sp-runtime-interface-proc-macro 3.0.0 (git+https://github.com/paritytech//substrate?branch=polkadot-v0.9.9)",
  "sp-std 3.0.0 (git+https://github.com/paritytech//substrate?branch=polkadot-v0.9.9)",
@@ -9913,7 +10010,7 @@ source = "git+https://github.com/paritytech/substrate?branch=polkadot-v0.9.9#741
 dependencies = [
  "impl-trait-for-tuples 0.2.1",
  "parity-scale-codec",
- "primitive-types",
+ "primitive-types 0.9.1",
  "sp-externalities 0.9.0 (git+https://github.com/paritytech/substrate?branch=polkadot-v0.9.9)",
  "sp-runtime-interface-proc-macro 3.0.0 (git+https://github.com/paritytech/substrate?branch=polkadot-v0.9.9)",
  "sp-std 3.0.0 (git+https://github.com/paritytech/substrate?branch=polkadot-v0.9.9)",
@@ -9930,7 +10027,7 @@ source = "git+https://github.com/paritytech/substrate?rev=1d04678e20555e623c974e
 dependencies = [
  "impl-trait-for-tuples 0.2.1",
  "parity-scale-codec",
- "primitive-types",
+ "primitive-types 0.9.1",
  "sp-externalities 0.9.0 (git+https://github.com/paritytech/substrate?rev=1d04678e20555e623c974ee1127bc8a45abcf3d6)",
  "sp-runtime-interface-proc-macro 3.0.0 (git+https://github.com/paritytech/substrate?rev=1d04678e20555e623c974ee1127bc8a45abcf3d6)",
  "sp-std 3.0.0 (git+https://github.com/paritytech/substrate?rev=1d04678e20555e623c974ee1127bc8a45abcf3d6)",
@@ -12205,11 +12302,12 @@ dependencies = [
 
 [[package]]
 name = "xcm"
-version = "0.9.8"
-source = "git+https://github.com/paritytech/polkadot?branch=release-v0.9.8#3a10ee63c0b5703a1c802db3438ab7e01344a8ce"
+version = "0.9.9-1"
+source = "git+https://github.com/paritytech/polkadot?branch=release-v0.9.9#7a9f624777ad2d2adb3a1e6797a31f9d653c9587"
 dependencies = [
  "derivative",
  "impl-trait-for-tuples 0.2.1",
+ "log",
  "parity-scale-codec",
 ]
 
